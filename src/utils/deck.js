@@ -2,7 +2,16 @@ import { damageTypes } from '../constants/deck';
 
 const deck = damageTypes.map(type => ({
   damageType: type,
-  count: 12
+  count: 3
 }));
 
-export default deck;
+export const getInitialDeck = () => {
+  const cards = [];
+  deck.map(({ damageType, count }) => {
+    for (let i = 0; i < count; i++) {
+      cards.push({ damageType });
+    }
+  });
+
+  return cards;
+};

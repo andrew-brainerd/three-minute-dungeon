@@ -1,15 +1,21 @@
 import React from 'react';
-import { oneOf } from 'prop-types';
+import { oneOf, bool } from 'prop-types';
 import { damageTypes } from '../../constants/deck';
 import styles from './Card.module.scss';
 
-const Card = ({ damageType }) => {
+const Card = ({ damageType, mini }) => {
   return (
-    <div className={styles.card}>
+    <div
+      className={[
+        styles.card,
+        mini ? styles.mini : ''
+      ].join(' ')}
+    >
       <div
         className={[
           styles.damageType,
-          styles[damageType]].join(' ')}
+          styles[damageType]
+        ].join(' ')}
       >
         {damageType}
       </div>
@@ -18,7 +24,8 @@ const Card = ({ damageType }) => {
 };
 
 Card.propTypes = {
-  damageType: oneOf(damageTypes)
-}
+  damageType: oneOf(damageTypes),
+  mini: bool
+};
 
 export default Card;

@@ -1,0 +1,18 @@
+.deck {
+  display: flex;
+  flex-flow: row wrap;
+  height: 700px;
+  position: relative;
+}
+
+.buttonContainer {
+  position: absolute;
+  bottom: 50px;
+
+  .button {
+    border: 2px solid white;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+  }
+}
