@@ -1,7 +1,6 @@
 .app {
+  display: flex;
+  flex-flow: row wrap;
   position: relative;
-
-  h1 {
-    text-align: center;
-  }
+  width: 95%;
 }
