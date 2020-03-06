@@ -5,3 +5,5 @@ export const damageTypes = [
   'Electric',
   'Ground'
 ];
+
+export const MAX_HAND_SIZE = 5;

@@ -1,43 +1,30 @@
-import React, { useState } from 'react';
-import { remove } from 'ramda';
-import Card from '../Card/Card';
-import { getInitialDeck } from '../../utils/deck';
-import { getRandomInt } from '../../utils/math';
+import React from 'react';
+import { array, func } from 'prop-types';
 import styles from './Deck.module.scss';
 
-const initialDeck = getInitialDeck();
+const Deck = ({ currentDeck, drawCard }) => {
+  const hasMoreCards = !!currentDeck.length;
 
-const Deck = () => {
-  const [currentDeck, setCurrentDeck] = useState(initialDeck);
-
-  const drawCardFromDeck = () => {
-    const cardNumToDraw = getRandomInt(currentDeck.length);
-    const cardDrawn = currentDeck[cardNumToDraw];
-
-    setCurrentDeck(remove(cardNumToDraw, 1, currentDeck));
-
-    return cardDrawn;
-  };
+  console.log('Current Deck: ', currentDeck);
 
   return (
-    <>
-      <div className={styles.deck}>
-        {currentDeck.map((card, c) =>
-          <Card key={c} mini={true} {...card} />
-        )}
+    <div className={styles.deck}>
+      <div
+        className={[
+          styles.button,
+          !hasMoreCards ? styles.disabled : ''
+        ].join(' ')}
+        onClick={() => hasMoreCards && drawCard()}
+      >
+        {!hasMoreCards ? 'Empty' : 'Draw Card'}
       </div>
-      <div className={styles.buttonContainer}>
-        {currentDeck.length &&
-          <div
-            className={styles.button}
-            onClick={() => console.log(drawCardFromDeck())}
-          >
-            Draw Card
-          </div>
-        }
-      </div>
-    </>
+    </div>
   );
+};
+
+Deck.propTypes = {
+  currentDeck: array,
+  drawCard: func.isRequired
 };
 
 export default Deck;

@@ -1,16 +1,24 @@
-import { getInitialDeck } from "../utils/deck";
+import { getInitialDeck } from '../utils/deck';
+import {
+  SHUFFLE,
+  DEALING_CARDS,
+  CARDS_DEALT,
+  SET_CURRENT_DECK,
+  ADD_CARD_TO_HAND
+} from '../actions/deck';
 
 const initialState = {
-  desk: getInitialDeck(),
+  currentDeck: getInitialDeck(),
+  hand: [],
   isDealing: false
 };
 
-export default function deck(state = initialState, action) {
+export default function deck (state = initialState, action) {
   switch (action.type) {
     case SHUFFLE:
       return {
         ...state,
-        deck: getInitialDeck()
+        currentDeck: getInitialDeck()
       };
     case DEALING_CARDS:
       return {
@@ -22,7 +30,20 @@ export default function deck(state = initialState, action) {
       return {
         ...state,
         isDealing: false,
-        hand: action.hands
+        hand: action.hand
+      };
+    case SET_CURRENT_DECK:
+      return {
+        ...state,
+        currentDeck: action.deck
+      };
+    case ADD_CARD_TO_HAND:
+      return {
+        ...state,
+        hand: [
+          ...state.hand,
+          action.card
+        ]
       };
     default:
       return state;

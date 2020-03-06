@@ -1,0 +1,28 @@
+.hand {
+  align-items: flex-end;
+  bottom: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50%;
+  position: absolute;
+  transition: all 0.3s;
+
+  .dealButton {
+    position: relative;
+    bottom: 50px;
+  }
+
+  .handCard {
+    cursor: default;
+    height: 175px;
+    margin-left: -50px;
+    max-width: 150px;
+    position: relative;
+    width: 150px;
+
+    &:hover {
+      transform: translateY(-20px);
+      z-index: 10;
+    }
+  }
+}

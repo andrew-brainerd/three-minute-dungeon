@@ -1,19 +1,23 @@
+@import '../../styles/colors.scss';
+
 .card {
   align-items: center;
-  background: white;
-  border: 2px solid transparent;
+  background: $cardBackground;
+  border: 2px solid $gray-85;
   border-radius: 5px;
-  color: black;
+  color: $highlightColor;
   display: flex;
   font-size: 1.1em;
+  font-weight: bold;
   height: 275px;
   justify-content: center;
   margin: 5px;
   transition: 0.2s all ease;
   width: 200px;
+  z-index: 5;
 
   &:hover {
-    border: 2px solid teal;
+    border: 2px solid $highlightColor;
   }
 
   &.mini {

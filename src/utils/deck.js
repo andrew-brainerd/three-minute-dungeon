@@ -1,8 +1,9 @@
 import { damageTypes } from '../constants/deck';
+import { getRandomInt } from './math';
 
 const deck = damageTypes.map(type => ({
   damageType: type,
-  count: 4
+  count: getRandomInt(4)
 }));
 
 export const getInitialDeck = () => {

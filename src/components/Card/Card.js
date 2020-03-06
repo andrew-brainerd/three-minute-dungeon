@@ -1,14 +1,15 @@
 import React from 'react';
-import { oneOf, bool } from 'prop-types';
+import { string, oneOf, bool } from 'prop-types';
 import { damageTypes } from '../../constants/deck';
 import styles from './Card.module.scss';
 
-const Card = ({ damageType, mini }) => {
+const Card = ({ className, damageType, mini }) => {
   return (
     <div
       className={[
         styles.card,
-        mini ? styles.mini : ''
+        mini ? styles.mini : '',
+        className || ''
       ].join(' ')}
     >
       <div
@@ -24,6 +25,7 @@ const Card = ({ damageType, mini }) => {
 };
 
 Card.propTypes = {
+  className: string,
   damageType: oneOf(damageTypes),
   mini: bool
 };
