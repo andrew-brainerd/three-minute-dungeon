@@ -6,7 +6,4 @@ export const getCurrentDeck = pathOr([], ['deck', 'currentDeck']);
 
 export const getHand = pathOr([], ['deck', 'hand']);
 
-export const getCanDrawCard = createSelector([getHand], hand => {
-  console.log('getCanDrawCard: ', hand);
-  return hand.length < MAX_HAND_SIZE;
-});
+export const getCanDrawCard = createSelector([getHand], hand => hand.length < MAX_HAND_SIZE);
