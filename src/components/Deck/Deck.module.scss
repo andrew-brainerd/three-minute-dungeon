@@ -1,9 +1,11 @@
 @import '../../styles/colors.scss';
 
 .deck {
+  align-items: center;
   display: flex;
   flex-flow: row wrap;
-  height: 50%;
+  height: 300px;
+  justify-content: center;
   position: relative;
 }
 

@@ -7,3 +7,7 @@ export const damageTypes = [
 ];
 
 export const MAX_HAND_SIZE = 5;
+
+export const itemTypes = {
+  CARD: 'card'
+};

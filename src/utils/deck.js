@@ -3,14 +3,14 @@ import { getRandomInt } from './math';
 
 const deck = damageTypes.map(type => ({
   damageType: type,
-  count: getRandomInt(4)
+  count: getRandomInt(6)
 }));
 
 export const getInitialDeck = () => {
   const cards = [];
-  deck.map(({ damageType, count }) => {
+  deck.map(({ damageType, count }, cardId) => {
     for (let i = 0; i < count; i++) {
-      cards.push({ damageType });
+      cards.push({ cardId, damageType });
     }
     return 0;
   });
